@@ -72,7 +72,8 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ), */
-        /* grid view
+        //* grid view
+
         body: GridView.count(
           primary: false,
           padding: const EdgeInsets.all(20),
@@ -116,7 +117,7 @@ class MyApp extends StatelessWidget {
               color: Colors.teal[600],
             ),
           ],
-        ), */
+        ),
         /* table
         body: Padding(
           padding: EdgeInsets.all(10.0),
