@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nombres": "Ana",
+    "apellidos": "Gomez",
+    "doc_identidad": 123456
+  },
+  {
+    "id": 2,
+    "nombres": "Jorge",
+    "apellidos": "Chavez",
+    "doc_identidad": 223344
+  },
+  {
+    "id": 3,
+    "nombres": "Marco",
+    "apellidos": "Vargas",
+    "doc_identidad": 656565
+  }
+]
