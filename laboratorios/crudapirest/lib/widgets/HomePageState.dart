@@ -43,7 +43,7 @@ class HomePageState extends State<HomePage> {
               children: <Widget>[
                 ListTile(
                   leading: Icon(Icons.person),
-                  title: Text('User'),
+                  title: Text("Usuario ${data[index]["id"]}"),
                   subtitle: Text(
                     data[index]["nombres"] + " " + data[index]["apellidos"],
                   ),
@@ -63,21 +63,22 @@ class HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: <Widget>[
                                       Form(
-                                          key: formKey,
-                                          child: Padding(
-                                            padding: EdgeInsets.all(10.0),
-                                            child: Column(
-                                              children: <Widget>[
-                                                emailField(),
-                                                passwordField(),
-                                                Container(
-                                                  margin: EdgeInsets.only(
-                                                      bottom: 30.0),
-                                                ),
-                                                submitButton(),
-                                              ],
-                                            ),
-                                          ))
+                                        key: formKey,
+                                        child: Padding(
+                                          padding: EdgeInsets.all(10.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              idField(),
+                                              passwordField(),
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    bottom: 30.0),
+                                              ),
+                                              submitButton(),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -97,21 +98,22 @@ class HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: <Widget>[
                                       Form(
-                                          key: formKey,
-                                          child: Padding(
-                                            padding: EdgeInsets.all(10.0),
-                                            child: Row(
-                                              children: <Widget>[
-                                                acceptButton(),
-                                                Container(
-                                                  margin: EdgeInsets.only(
-                                                    right: 30.0,
-                                                  ),
+                                        key: formKey,
+                                        child: Padding(
+                                          padding: EdgeInsets.all(10.0),
+                                          child: Row(
+                                            children: <Widget>[
+                                              acceptButton(),
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                  right: 30.0,
                                                 ),
-                                                cancelButton(),
-                                              ],
-                                            ),
-                                          ))
+                                              ),
+                                              cancelButton(),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -138,20 +140,21 @@ class HomePageState extends State<HomePage> {
                   child: Column(
                     children: <Widget>[
                       Form(
-                          key: formKey,
-                          child: Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Column(
-                              children: <Widget>[
-                                emailField(),
-                                passwordField(),
-                                Container(
-                                  margin: EdgeInsets.only(bottom: 30.0),
-                                ),
-                                submitButton(),
-                              ],
-                            ),
-                          ))
+                        key: formKey,
+                        child: Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Column(
+                            children: <Widget>[
+                              idField(),
+                              passwordField(),
+                              Container(
+                                margin: EdgeInsets.only(bottom: 30.0),
+                              ),
+                              submitButton(),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -165,7 +168,21 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  Widget emailField() {
+  Widget idField() {
+    return TextFormField(
+      decoration:
+          InputDecoration(hintText: '0', labelText: 'ID'),
+      keyboardType: TextInputType.number,
+      validator: (value) {
+        return !value.contains('/[a-zA-z]/') ? 'id invalido' : null;
+      },
+      onSaved: (String value) {
+        _email = value;
+      },
+    );
+  }
+
+  Widget nameField() {
     return TextFormField(
       decoration:
           InputDecoration(hintText: 'cognos@gmail.com', labelText: 'Email'),
@@ -203,6 +220,7 @@ class HomePageState extends State<HomePage> {
       },
     );
   }
+
   Widget acceptButton() {
     return RaisedButton.icon(
       color: Colors.cyan[600],
@@ -217,6 +235,7 @@ class HomePageState extends State<HomePage> {
       },
     );
   }
+
   Widget cancelButton() {
     return RaisedButton.icon(
       color: Colors.cyan[600],
